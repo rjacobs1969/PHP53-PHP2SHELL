@@ -1,0 +1,10 @@
+#! /bin/sh
+#
+# Created by configure
+
+CC='gcc -std=gnu89' \
+'./configure' \
+'--disable-all' \
+'--enable-cli' \
+'--without-pear' \
+"$@"
