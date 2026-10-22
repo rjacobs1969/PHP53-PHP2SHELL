@@ -1,0 +1,208 @@
+From 0ea83ff8478d867ebf1603a43cd5d3432022cee7 Mon Sep 17 00:00:00 2001
+From: Moriyoshi Koizumi <mozo@mozo.jp>
+Date: Sun, 10 Feb 2013 15:04:23 +0900
+Subject: [PATCH] mb_split() can now handle empty matches like preg_split()
+ does.
+---
+ ext/mbstring/php_mbregex.c                   | 45 ++++++++++----------
+ ext/mbstring/tests/mb_split_empty_match.phpt | 23 ++++++++++
+ ext/mbstring/tests/mb_split_variation1.phpt  | 18 +-------
+ 3 files changed, 46 insertions(+), 40 deletions(-)
+ create mode 100644 ext/mbstring/tests/mb_split_empty_match.phpt
+
+diff --git a/ext/mbstring/php_mbregex.c b/ext/mbstring/php_mbregex.c
+index 8c2fd7a..91954e0 100644
+--- a/ext/mbstring/php_mbregex.c
++++ b/ext/mbstring/php_mbregex.c
+@@ -990,7 +990,7 @@ PHP_FUNCTION(mb_split)
+ 	php_mb_regex_t *re;
+ 	OnigRegion *regs = NULL;
+ 	char *string;
+-	OnigUChar *pos;
++	OnigUChar *pos, *chunk_pos;
+ 	int string_len;
+ 
+ 	int n, err;
+@@ -1000,8 +1000,8 @@ PHP_FUNCTION(mb_split)
+ 		RETURN_FALSE;
+ 	} 
+ 
+-	if (count == 0) {
+-		count = 1;
++	if (count > 0) {
++		count--;
+ 	}
+ 
+ 	/* create regex pattern buffer */
+@@ -1011,31 +1011,30 @@ PHP_FUNCTION(mb_split)
+ 
+ 	array_init(return_value);
+ 
+-	pos = (OnigUChar *)string;
++	chunk_pos = pos = (OnigUChar *)string;
+ 	err = 0;
+ 	regs = onig_region_new();
+ 	/* churn through str, generating array entries as we go */
+-	while ((--count != 0) &&
+-		   (err = onig_search(re, (OnigUChar *)string, (OnigUChar *)(string + string_len), pos, (OnigUChar *)(string + string_len), regs, 0)) >= 0) {
+-		if (regs->beg[0] == regs->end[0]) {
+-			php_error_docref(NULL TSRMLS_CC, E_WARNING, "Empty regular expression");
++	while (count != 0 && (pos - (OnigUChar *)string) < string_len) {
++		int beg, end;
++		err = onig_search(re, (OnigUChar *)string, (OnigUChar *)(string + string_len), pos, (OnigUChar *)(string + string_len), regs, 0);
++		if (err < 0) {
+ 			break;
+ 		}
+-
++		beg = regs->beg[0], end = regs->end[0];
+ 		/* add it to the array */
+-		if (regs->beg[0] < string_len && regs->beg[0] >= (pos - (OnigUChar *)string)) {
+-			add_next_index_stringl(return_value, (char *)pos, ((OnigUChar *)(string + regs->beg[0]) - pos), 1);
++		if ((pos - (OnigUChar *)string) < end) {
++			if (beg < string_len && beg >= (chunk_pos - (OnigUChar *)string)) {
++				add_next_index_stringl(return_value, (char *)chunk_pos, ((OnigUChar *)(string + beg) - chunk_pos), 1);
++				--count;
++			} else {
++				err = -2;
++				break;
++			}
++			/* point at our new starting point */
++			chunk_pos = pos = (OnigUChar *)string + end;
+ 		} else {
+-			err = -2;
+-			break;
+-		}
+-		/* point at our new starting point */
+-		n = regs->end[0];
+-		if ((pos - (OnigUChar *)string) < n) {
+-			pos = (OnigUChar *)string + n;
+-		}
+-		if (count < 0) {
+-			count = 0;
++			pos++;
+ 		}
+ 		onig_region_free(regs, 0);
+ 	}
+@@ -1052,9 +1051,9 @@ PHP_FUNCTION(mb_split)
+ 	}
+ 
+ 	/* otherwise we just have one last element to add to the array */
+-	n = ((OnigUChar *)(string + string_len) - pos);
++	n = ((OnigUChar *)(string + string_len) - chunk_pos);
+ 	if (n > 0) {
+-		add_next_index_stringl(return_value, (char *)pos, n, 1);
++		add_next_index_stringl(return_value, (char *)chunk_pos, n, 1);
+ 	} else {
+ 		add_next_index_stringl(return_value, "", 0, 1);
+ 	}
+diff --git a/ext/mbstring/tests/mb_split_empty_match.phpt b/ext/mbstring/tests/mb_split_empty_match.phpt
+new file mode 100644
+index 0000000..df3a22c
+--- /dev/null
++++ b/ext/mbstring/tests/mb_split_empty_match.phpt
+@@ -0,0 +1,23 @@
++--TEST--
++mb_split() empty match
++--
++--SKIPIF--
++<?php
++extension_loaded('mbstring') or die('skip');
++function_exists('mb_split') or die("skip mb_split() is not available in this build");
++?>
++--FILE--
++<?php
++mb_regex_set_options('m');
++var_dump(mb_split('^', "a\nb\nc"));
++--EXPECT--
++array(3) {
++  [0]=>
++  string(2) "a
++"
++  [1]=>
++  string(2) "b
++"
++  [2]=>
++  string(1) "c"
++}
+diff --git a/ext/mbstring/tests/mb_split_variation1.phpt b/ext/mbstring/tests/mb_split_variation1.phpt
+index be3230e..b508049 100644
+--- a/ext/mbstring/tests/mb_split_variation1.phpt
++++ b/ext/mbstring/tests/mb_split_variation1.phpt
+@@ -156,16 +156,12 @@ array(1) {
+ }
+ 
+ -- Iteration 10 --
+-
+-Warning: mb_split(): Empty regular expression in %s on line %d
+ array(1) {
+   [0]=>
+   string(13) "a b c d e f g"
+ }
+ 
+ -- Iteration 11 --
+-
+-Warning: mb_split(): Empty regular expression in %s on line %d
+ array(1) {
+   [0]=>
+   string(13) "a b c d e f g"
+@@ -178,8 +174,6 @@ array(1) {
+ }
+ 
+ -- Iteration 13 --
+-
+-Warning: mb_split(): Empty regular expression in %s on line %d
+ array(1) {
+   [0]=>
+   string(13) "a b c d e f g"
+@@ -192,24 +186,18 @@ array(1) {
+ }
+ 
+ -- Iteration 15 --
+-
+-Warning: mb_split(): Empty regular expression in %s on line %d
+ array(1) {
+   [0]=>
+   string(13) "a b c d e f g"
+ }
+ 
+ -- Iteration 16 --
+-
+-Warning: mb_split(): Empty regular expression in %s on line %d
+ array(1) {
+   [0]=>
+   string(13) "a b c d e f g"
+ }
+ 
+ -- Iteration 17 --
+-
+-Warning: mb_split(): Empty regular expression in %s on line %d
+ array(1) {
+   [0]=>
+   string(13) "a b c d e f g"
+@@ -240,16 +228,12 @@ array(1) {
+ }
+ 
+ -- Iteration 22 --
+-
+-Warning: mb_split(): Empty regular expression in %s on line %d
+ array(1) {
+   [0]=>
+   string(13) "a b c d e f g"
+ }
+ 
+ -- Iteration 23 --
+-
+-Warning: mb_split(): Empty regular expression in %s on line %d
+ array(1) {
+   [0]=>
+   string(13) "a b c d e f g"
+@@ -259,4 +243,4 @@ array(1) {
+ 
+ Warning: mb_split() expects parameter 1 to be string, resource given in %s on line %d
+ bool(false)
+-Done
+\ No newline at end of file
++Done
+-- 
+2.20.1
+
