@@ -145,7 +145,7 @@ s%@NATIVE_RPATHS@%%g
 s%@PEAR_INSTALLDIR@%%g
 s%@PHP_LDFLAGS@%%g
 s%@PHP_LIBS@%%g
-s%@PHP_VERSION@%5.3.10%g
+s%@PHP_VERSION@%5.3.10-security-backport%g
 s%@PHP_VERSION_ID@%50310%g
 s%@build@%x86_64-unknown-linux-gnu%g
 s%@build_alias@%x86_64-unknown-linux-gnu%g

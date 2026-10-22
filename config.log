@@ -2,43 +2,7 @@ This file contains any messages produced by compilers while
 running configure, to aid debugging if configure makes a mistake.
 
 configure:1897: checking for Cygwin environment
-configure:1913: gcc -std=gnu89 -c   conftest.c 1>&5
-configure: In function 'main':
-configure:1907:20: error: '__CYGWIN32__' undeclared (first use in this function)
- 1907 | #define __CYGWIN__ __CYGWIN32__
-      |                    ^~~~~~~~~~~~
-configure:1909:8: note: in expansion of macro '__CYGWIN__'
- 1909 | return __CYGWIN__;
-      |        ^~~~~~~~~~
-configure:1907:20: note: each undeclared identifier is reported only once for each function it appears in
-configure:1909:8: note: in expansion of macro '__CYGWIN__'
- 1909 | return __CYGWIN__;
-      |        ^~~~~~~~~~
-configure: failed program was:
-#line 1902 "configure"
-#include "confdefs.h"
-
-int main() {
-
-#ifndef __CYGWIN__
-#define __CYGWIN__ __CYGWIN32__
-#endif
-return __CYGWIN__;
-; return 0; }
 configure:1930: checking for mingw32 environment
-configure:1942: gcc -std=gnu89 -c   conftest.c 1>&5
-configure: In function 'main':
-configure:1938:8: error: '__MINGW32__' undeclared (first use in this function)
- 1938 | return __MINGW32__;
-      |        ^~~~~~~~~~~
-configure:1938:8: note: each undeclared identifier is reported only once for each function it appears in
-configure: failed program was:
-#line 1935 "configure"
-#include "confdefs.h"
-
-int main() {
-return __MINGW32__;
-; return 0; }
 configure:1961: checking for egrep
 configure:1976: checking for a sed that does not truncate output
 configure:2126: checking host system type
@@ -48,36 +12,18 @@ configure:2372: checking whether the C compiler (gcc -std=gnu89  ) works
 configure:2388: gcc -std=gnu89 -o conftest    conftest.c  1>&5
 configure:2414: checking whether the C compiler (gcc -std=gnu89  ) is a cross-compiler
 configure:2419: checking whether we are using GNU C
-configure:2428: gcc -std=gnu89 -E conftest.c
 configure:2447: checking whether gcc -std=gnu89 accepts -g
 configure:2479: checking how to run the C preprocessor
-configure:2500: gcc -std=gnu89 -E  conftest.c >/dev/null 2>conftest.out
 configure:2561: checking for icc
 configure:2585: checking for suncc
 configure:2610: checking whether gcc -std=gnu89 and cc understand -c and -o together
-configure:2625: gcc -std=gnu89 -c conftest.c -o conftest.o 1>&5
-configure:2626: gcc -std=gnu89 -c conftest.c -o conftest.o 1>&5
-configure:2631: cc -c conftest.c 1>&5
-conftest.c:1:1: error: return type defaults to 'int' [-Wimplicit-int]
-    1 | foo(){}
-      | ^~~
 configure:2661: checking how to run the C preprocessor
 configure:2741: checking for AIX
 configure:2765: checking whether ln -s works
 configure:2790: checking for system library directory
 configure:2813: checking whether to enable runpaths
 configure:2834: checking if compiler supports -R
-configure:2849: gcc -std=gnu89 -o conftest -g -O2   conftest.c -R /usr/lib  1>&5
-gcc: error: unrecognized command-line option '-R'
-configure: failed program was:
-#line 2842 "configure"
-#include "confdefs.h"
-
-int main() {
-
-; return 0; }
 configure:2867: checking if compiler supports -Wl,-rpath,
-configure:2882: gcc -std=gnu89 -o conftest -g -O2   conftest.c -Wl,-rpath,/usr/lib  1>&5
 configure:2913: checking for gawk
 configure:2973: checking for bison
 configure:3013: checking for bison version
@@ -120,35 +66,8 @@ configure:14028: checking whether cross-process locking is required by accept()
 configure:14272: checking for chosen SAPI module
 configure:14329: checking for sendmail
 configure:14368: checking whether system uses EBCDIC
-configure:14387: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c  1>&5
-configure: failed program was:
-#line 14379 "configure"
-#include "confdefs.h"
-
-int main(void) { 
-  return (unsigned char)'A' != (unsigned char)0xC1; 
-} 
-
 configure:14415: checking whether byte ordering is bigendian
-configure:14441: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c  1>&5
-configure: failed program was:
-#line 14425 "configure"
-#include "confdefs.h"
-
-int main(void)
-{
-  short one = 1;
-  char *cp = (char *)&one;
-
-  if (*cp == 0) {
-    return(0);
-  } else {
-    return(1);
-  }
-}
-  
 configure:14467: checking whether writing to stdout works
-configure:14496: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c  1>&5
 configure:14571: checking for socket
 configure:14599: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c  1>&5
 configure:14828: checking for socketpair
@@ -161,7 +80,7 @@ configure:15599: checking for gethostbyaddr
 configure:15627: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c  1>&5
 configure:15856: checking for yp_get_default_domain
 configure:15884: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c  1>&5
-/usr/bin/ld: /tmp/ccj3IQ3M.o: in function `main':
+/usr/bin/ld: /tmp/ccDeEUnn.o: in function `main':
 /mnt/shared/source/emergency/php53patch/php5-5.3.10/configure:15878:(.text.startup+0x7): undefined reference to `yp_get_default_domain'
 collect2: error: ld returned 1 exit status
 configure: failed program was:
@@ -189,7 +108,7 @@ yp_get_default_domain();
 ; return 0; }
 configure:15902: checking for __yp_get_default_domain
 configure:15930: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c  1>&5
-/usr/bin/ld: /tmp/ccEIGnFU.o: in function `main':
+/usr/bin/ld: /tmp/cc18ZPk4.o: in function `main':
 /mnt/shared/source/emergency/php53patch/php5-5.3.10/configure:15924:(.text.startup+0x7): undefined reference to `__yp_get_default_domain'
 collect2: error: ld returned 1 exit status
 configure: failed program was:
@@ -221,209 +140,66 @@ configure:16062: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftes
 configure:16114: checking for dlopen
 configure:16142: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lnsl  1>&5
 configure:16372: checking for sin in -lm
-configure:16391: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm  -lnsl  1>&5
-configure:16384:6: warning: conflicting types for built-in function 'sin'; expected 'double(double)' [-Wbuiltin-declaration-mismatch]
-16384 | char sin();
-      |      ^~~
-configure:16381:1: note: 'sin' is declared in header '<math.h>'
-16380 | #include "confdefs.h"
-  +++ |+#include <math.h>
-16381 | /* Override any gcc2 internal prototype to avoid an error.  */
 configure:16425: checking for inet_aton
 configure:16453: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:16818: checking for ANSI C header files
-configure:16831: gcc -std=gnu89 -E  conftest.c >/dev/null 2>conftest.out
-configure:16898: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
-configure: In function 'main':
-configure:16893:67: warning: incompatible implicit declaration of built-in function 'exit' [-Wbuiltin-declaration-mismatch]
-16893 | if (XOR (islower (i), ISLOWER (i)) || toupper (i) != TOUPPER (i)) exit(2);
-      |                                                                   ^~~~
-configure:16889:1: note: include '<stdlib.h>' or provide a declaration of 'exit'
-16888 | #include <ctype.h>
-  +++ |+#include <stdlib.h>
-16889 | #define ISLOWER(c) ('a' <= (c) && (c) <= 'z')
 configure:16926: checking for dirent.h that defines DIR
-configure:16939: gcc -std=gnu89 -c -g -O2 -fvisibility=hidden  conftest.c 1>&5
 configure:16964: checking for opendir in -ldir
-configure:16983: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -ldir  -lm -lnsl  1>&5
-/usr/bin/ld: cannot find -ldir: No such file or directory
-collect2: error: ld returned 1 exit status
-configure: failed program was:
-#line 16972 "configure"
-#include "confdefs.h"
-/* Override any gcc2 internal prototype to avoid an error.  */
-/* We use char because int might match the return type of a gcc2
-    builtin and then its argument prototype would still apply.  */
-char opendir();
-
-int main() {
-opendir()
-; return 0; }
 configure:17106: checking for inttypes.h
-configure:17116: gcc -std=gnu89 -E  conftest.c >/dev/null 2>conftest.out
 configure:17106: checking for stdint.h
-configure:17116: gcc -std=gnu89 -E  conftest.c >/dev/null 2>conftest.out
 configure:17106: checking for dirent.h
-configure:17116: gcc -std=gnu89 -E  conftest.c >/dev/null 2>conftest.out
 configure:17106: checking for ApplicationServices/ApplicationServices.h
-configure:17116: gcc -std=gnu89 -E  conftest.c >/dev/null 2>conftest.out
-configure:17112:10: fatal error: ApplicationServices/ApplicationServices.h: No such file or directory
-17112 | #include <$ac_hdr>
-      |          ^~~~~~~~~                                  
-compilation terminated.
-configure: failed program was:
-#line 17111 "configure"
-#include "confdefs.h"
-#include <ApplicationServices/ApplicationServices.h>
 configure:17106: checking for sys/param.h
-configure:17116: gcc -std=gnu89 -E  conftest.c >/dev/null 2>conftest.out
 configure:17106: checking for sys/types.h
-configure:17116: gcc -std=gnu89 -E  conftest.c >/dev/null 2>conftest.out
 configure:17106: checking for sys/time.h
-configure:17116: gcc -std=gnu89 -E  conftest.c >/dev/null 2>conftest.out
 configure:17106: checking for netinet/in.h
-configure:17116: gcc -std=gnu89 -E  conftest.c >/dev/null 2>conftest.out
 configure:17106: checking for alloca.h
-configure:17116: gcc -std=gnu89 -E  conftest.c >/dev/null 2>conftest.out
 configure:17106: checking for arpa/inet.h
-configure:17116: gcc -std=gnu89 -E  conftest.c >/dev/null 2>conftest.out
 configure:17106: checking for arpa/nameser.h
-configure:17116: gcc -std=gnu89 -E  conftest.c >/dev/null 2>conftest.out
 configure:17106: checking for assert.h
-configure:17116: gcc -std=gnu89 -E  conftest.c >/dev/null 2>conftest.out
 configure:17106: checking for crypt.h
-configure:17116: gcc -std=gnu89 -E  conftest.c >/dev/null 2>conftest.out
 configure:17106: checking for dns.h
-configure:17116: gcc -std=gnu89 -E  conftest.c >/dev/null 2>conftest.out
-configure:17112:10: fatal error: dns.h: No such file or directory
-17112 | #include <$ac_hdr>
-      |          ^~~~~~~
-compilation terminated.
-configure: failed program was:
-#line 17111 "configure"
-#include "confdefs.h"
-#include <dns.h>
 configure:17106: checking for fcntl.h
-configure:17116: gcc -std=gnu89 -E  conftest.c >/dev/null 2>conftest.out
 configure:17106: checking for grp.h
-configure:17116: gcc -std=gnu89 -E  conftest.c >/dev/null 2>conftest.out
 configure:17106: checking for ieeefp.h
-configure:17116: gcc -std=gnu89 -E  conftest.c >/dev/null 2>conftest.out
-configure:17112:10: fatal error: ieeefp.h: No such file or directory
-17112 | #include <$ac_hdr>
-      |          ^~~~~~~~~ 
-compilation terminated.
-configure: failed program was:
-#line 17111 "configure"
-#include "confdefs.h"
-#include <ieeefp.h>
 configure:17106: checking for langinfo.h
-configure:17116: gcc -std=gnu89 -E  conftest.c >/dev/null 2>conftest.out
 configure:17106: checking for limits.h
-configure:17116: gcc -std=gnu89 -E  conftest.c >/dev/null 2>conftest.out
 configure:17106: checking for locale.h
-configure:17116: gcc -std=gnu89 -E  conftest.c >/dev/null 2>conftest.out
 configure:17106: checking for monetary.h
-configure:17116: gcc -std=gnu89 -E  conftest.c >/dev/null 2>conftest.out
 configure:17106: checking for netdb.h
-configure:17116: gcc -std=gnu89 -E  conftest.c >/dev/null 2>conftest.out
 configure:17106: checking for pwd.h
-configure:17116: gcc -std=gnu89 -E  conftest.c >/dev/null 2>conftest.out
 configure:17106: checking for resolv.h
-configure:17116: gcc -std=gnu89 -E  conftest.c >/dev/null 2>conftest.out
 configure:17106: checking for signal.h
-configure:17116: gcc -std=gnu89 -E  conftest.c >/dev/null 2>conftest.out
 configure:17106: checking for stdarg.h
-configure:17116: gcc -std=gnu89 -E  conftest.c >/dev/null 2>conftest.out
 configure:17106: checking for stdlib.h
-configure:17116: gcc -std=gnu89 -E  conftest.c >/dev/null 2>conftest.out
 configure:17106: checking for string.h
-configure:17116: gcc -std=gnu89 -E  conftest.c >/dev/null 2>conftest.out
 configure:17106: checking for syslog.h
-configure:17116: gcc -std=gnu89 -E  conftest.c >/dev/null 2>conftest.out
 configure:17106: checking for sysexits.h
-configure:17116: gcc -std=gnu89 -E  conftest.c >/dev/null 2>conftest.out
 configure:17106: checking for sys/ioctl.h
-configure:17116: gcc -std=gnu89 -E  conftest.c >/dev/null 2>conftest.out
 configure:17106: checking for sys/file.h
-configure:17116: gcc -std=gnu89 -E  conftest.c >/dev/null 2>conftest.out
 configure:17106: checking for sys/mman.h
-configure:17116: gcc -std=gnu89 -E  conftest.c >/dev/null 2>conftest.out
 configure:17106: checking for sys/mount.h
-configure:17116: gcc -std=gnu89 -E  conftest.c >/dev/null 2>conftest.out
 configure:17106: checking for sys/poll.h
-configure:17116: gcc -std=gnu89 -E  conftest.c >/dev/null 2>conftest.out
 configure:17106: checking for sys/resource.h
-configure:17116: gcc -std=gnu89 -E  conftest.c >/dev/null 2>conftest.out
 configure:17106: checking for sys/select.h
-configure:17116: gcc -std=gnu89 -E  conftest.c >/dev/null 2>conftest.out
 configure:17106: checking for sys/socket.h
-configure:17116: gcc -std=gnu89 -E  conftest.c >/dev/null 2>conftest.out
 configure:17106: checking for sys/stat.h
-configure:17116: gcc -std=gnu89 -E  conftest.c >/dev/null 2>conftest.out
 configure:17106: checking for sys/statfs.h
-configure:17116: gcc -std=gnu89 -E  conftest.c >/dev/null 2>conftest.out
 configure:17106: checking for sys/statvfs.h
-configure:17116: gcc -std=gnu89 -E  conftest.c >/dev/null 2>conftest.out
 configure:17106: checking for sys/vfs.h
-configure:17116: gcc -std=gnu89 -E  conftest.c >/dev/null 2>conftest.out
 configure:17106: checking for sys/sysexits.h
-configure:17116: gcc -std=gnu89 -E  conftest.c >/dev/null 2>conftest.out
-configure:17112:10: fatal error: sys/sysexits.h: No such file or directory
-17112 | #include <$ac_hdr>
-      |          ^~~~~~~~~       
-compilation terminated.
-configure: failed program was:
-#line 17111 "configure"
-#include "confdefs.h"
-#include <sys/sysexits.h>
 configure:17106: checking for sys/varargs.h
-configure:17116: gcc -std=gnu89 -E  conftest.c >/dev/null 2>conftest.out
-configure:17112:10: fatal error: sys/varargs.h: No such file or directory
-17112 | #include <$ac_hdr>
-      |          ^~~~~~~~~      
-compilation terminated.
-configure: failed program was:
-#line 17111 "configure"
-#include "confdefs.h"
-#include <sys/varargs.h>
 configure:17106: checking for sys/wait.h
-configure:17116: gcc -std=gnu89 -E  conftest.c >/dev/null 2>conftest.out
 configure:17106: checking for sys/loadavg.h
-configure:17116: gcc -std=gnu89 -E  conftest.c >/dev/null 2>conftest.out
-configure:17112:10: fatal error: sys/loadavg.h: No such file or directory
-17112 | #include <$ac_hdr>
-      |          ^~~~~~~~~      
-compilation terminated.
-configure: failed program was:
-#line 17111 "configure"
-#include "confdefs.h"
-#include <sys/loadavg.h>
 configure:17106: checking for termios.h
-configure:17116: gcc -std=gnu89 -E  conftest.c >/dev/null 2>conftest.out
 configure:17106: checking for unistd.h
-configure:17116: gcc -std=gnu89 -E  conftest.c >/dev/null 2>conftest.out
 configure:17106: checking for unix.h
-configure:17116: gcc -std=gnu89 -E  conftest.c >/dev/null 2>conftest.out
-configure:17112:10: fatal error: unix.h: No such file or directory
-17112 | #include <$ac_hdr>
-      |          ^~~~~~~~
-compilation terminated.
-configure: failed program was:
-#line 17111 "configure"
-#include "confdefs.h"
-#include <unix.h>
 configure:17106: checking for utime.h
-configure:17116: gcc -std=gnu89 -E  conftest.c >/dev/null 2>conftest.out
 configure:17106: checking for sys/utsname.h
-configure:17116: gcc -std=gnu89 -E  conftest.c >/dev/null 2>conftest.out
 configure:17106: checking for sys/ipc.h
-configure:17116: gcc -std=gnu89 -E  conftest.c >/dev/null 2>conftest.out
 configure:17106: checking for dlfcn.h
-configure:17116: gcc -std=gnu89 -E  conftest.c >/dev/null 2>conftest.out
 configure:17106: checking for assert.h
 configure:17145: checking for fopencookie
-configure:17173: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:17205: gcc -std=gnu89 -c -g -O2 -fvisibility=hidden  conftest.c 1>&5
 configure:17256: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure: In function 'main':
@@ -436,47 +212,8 @@ configure:17228:1: note: include '<stdlib.h>' or provide a declaration of 'exit'
 17228 | 
 configure:17320: checking for broken getcwd
 configure:17335: checking for broken libc stdio
-configure:17396: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
-configure: In function 'main':
-configure:17380:5: warning: incompatible implicit declaration of built-in function 'exit' [-Wbuiltin-declaration-mismatch]
-17380 |     exit(2);
-      |     ^~~~
-configure:17371:1: note: include '<stdlib.h>' or provide a declaration of 'exit'
-17370 | #include <stdio.h>
-  +++ |+#include <stdlib.h>
-17371 | int main(int argc, char *argv[])
-configure: failed program was:
-#line 17368 "configure"
-#include "confdefs.h"
-
-#include <stdio.h>
-int main(int argc, char *argv[])
-{
-  FILE *fp;
-  long position;
-  char *filename = "/tmp/phpglibccheck";
-  
-  fp = fopen(filename, "w");
-  if (fp == NULL) {
-    perror("fopen");
-    exit(2);
-  }
-  fputs("foobar", fp);
-  fclose(fp);
-
-  fp = fopen(filename, "a+");
-  position = ftell(fp);
-  fclose(fp);
-  unlink(filename);
-  if (position == 0)
-  return 1;
-  return 0;
-}
-
 configure:17424: checking whether struct tm is in sys/time.h or time.h
-configure:17437: gcc -std=gnu89 -c -g -O2 -fvisibility=hidden  conftest.c 1>&5
 configure:17458: checking for tm_zone in struct tm
-configure:17471: gcc -std=gnu89 -c -g -O2 -fvisibility=hidden  conftest.c 1>&5
 configure:17530: checking for missing declarations of reentrant functions
 configure:17539: gcc -std=gnu89 -c -g -O2 -fvisibility=hidden  conftest.c 1>&5
 configure:17564: gcc -std=gnu89 -c -g -O2 -fvisibility=hidden  conftest.c 1>&5
@@ -486,573 +223,124 @@ configure:17639: gcc -std=gnu89 -c -g -O2 -fvisibility=hidden  conftest.c 1>&5
 configure:17660: checking for fclose declaration
 configure:17669: gcc -std=gnu89 -c -g -O2 -fvisibility=hidden  conftest.c 1>&5
 configure:17695: checking for tm_gmtoff in struct tm
-configure:17708: gcc -std=gnu89 -c -g -O2 -fvisibility=hidden  conftest.c 1>&5
 configure:17731: checking for struct flock
-configure:17746: gcc -std=gnu89 -c -g -O2 -fvisibility=hidden  conftest.c 1>&5
 configure:17773: checking for socklen_t
-configure:17790: gcc -std=gnu89 -c -g -O2 -fvisibility=hidden  conftest.c 1>&5
 configure:17816: checking size of size_t
-configure:17835: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
-configure: In function 'main':
-configure:17829:11: warning: incompatible implicit declaration of built-in function 'exit' [-Wbuiltin-declaration-mismatch]
-17829 |   if (!f) exit(1);
-      |           ^~~~
-configure:17826:1: note: include '<stdlib.h>' or provide a declaration of 'exit'
-17825 | #include <stdio.h>
-  +++ |+#include <stdlib.h>
-17826 | main()
 configure:17855: checking size of long long
-configure:17874: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
-configure: In function 'main':
-configure:17868:11: warning: incompatible implicit declaration of built-in function 'exit' [-Wbuiltin-declaration-mismatch]
-17868 |   if (!f) exit(1);
-      |           ^~~~
-configure:17865:1: note: include '<stdlib.h>' or provide a declaration of 'exit'
-17864 | #include <stdio.h>
-  +++ |+#include <stdlib.h>
-17865 | main()
 configure:17894: checking size of long long int
-configure:17913: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
-configure: In function 'main':
-configure:17907:11: warning: incompatible implicit declaration of built-in function 'exit' [-Wbuiltin-declaration-mismatch]
-17907 |   if (!f) exit(1);
-      |           ^~~~
-configure:17904:1: note: include '<stdlib.h>' or provide a declaration of 'exit'
-17903 | #include <stdio.h>
-  +++ |+#include <stdlib.h>
-17904 | main()
 configure:17933: checking size of long
-configure:17952: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
-configure: In function 'main':
-configure:17946:11: warning: incompatible implicit declaration of built-in function 'exit' [-Wbuiltin-declaration-mismatch]
-17946 |   if (!f) exit(1);
-      |           ^~~~
-configure:17943:1: note: include '<stdlib.h>' or provide a declaration of 'exit'
-17942 | #include <stdio.h>
-  +++ |+#include <stdlib.h>
-17943 | main()
 configure:17972: checking size of int
-configure:17991: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
-configure: In function 'main':
-configure:17985:11: warning: incompatible implicit declaration of built-in function 'exit' [-Wbuiltin-declaration-mismatch]
-17985 |   if (!f) exit(1);
-      |           ^~~~
-configure:17982:1: note: include '<stdlib.h>' or provide a declaration of 'exit'
-17981 | #include <stdio.h>
-  +++ |+#include <stdlib.h>
-17982 | main()
 configure:18013: checking size of intmax_t
-configure:18054: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c  1>&5
 configure:18093: checking size of ssize_t
-configure:18134: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c  1>&5
 configure:18173: checking size of ptrdiff_t
-configure:18214: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c  1>&5
 configure:18253: checking for st_blksize in struct stat
-configure:18266: gcc -std=gnu89 -c -g -O2 -fvisibility=hidden  conftest.c 1>&5
 configure:18288: checking for st_blocks in struct stat
-configure:18301: gcc -std=gnu89 -c -g -O2 -fvisibility=hidden  conftest.c 1>&5
 configure:18328: checking for st_rdev in struct stat
-configure:18341: gcc -std=gnu89 -c -g -O2 -fvisibility=hidden  conftest.c 1>&5
 configure:18363: checking for size_t
 configure:18396: checking for uid_t in sys/types.h
 configure:18432: checking for struct sockaddr_storage
-configure:18445: gcc -std=gnu89 -c -g -O2 -fvisibility=hidden  conftest.c 1>&5
 configure:18466: checking for field sa_len in struct sockaddr
-configure:18480: gcc -std=gnu89 -c -g -O2 -fvisibility=hidden  conftest.c 1>&5
-configure: In function 'main':
-configure:18476:44: error: 'struct sockaddr' has no member named 'sa_len'
-18476 | static struct sockaddr sa; int n = (int) sa.sa_len; return n;
-      |                                            ^
-configure: failed program was:
-#line 18472 "configure"
-#include "confdefs.h"
-#include <sys/types.h>
-#include <sys/socket.h>
-int main() {
-static struct sockaddr sa; int n = (int) sa.sa_len; return n;
-; return 0; }
 configure:18503: checking for IPv6 support
-configure:18517: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18533: checking for vprintf
-configure:18561: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
-configure:18545:6: warning: conflicting types for built-in function 'vprintf'; expected 'int(const char *, __va_list_tag *)' [-Wbuiltin-declaration-mismatch]
-18545 | char vprintf();
-      |      ^~~~~~~
-configure:18542:1: note: 'vprintf' is declared in header '<stdio.h>'
-18541 | #include <assert.h>
-  +++ |+#include <stdio.h>
-18542 | /* Override any gcc2 internal prototype to avoid an error.  */
 configure:18722: checking for alphasort
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for asctime_r
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for chroot
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for ctime_r
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for cuserid
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for crypt
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
-/usr/bin/ld: /tmp/ccJGfzXo.o: in function `main':
-/mnt/shared/source/emergency/php53patch/php5-5.3.10/configure:18744:(.text.startup+0x7): undefined reference to `crypt'
-collect2: error: ld returned 1 exit status
-configure: failed program was:
-#line 18727 "configure"
-#include "confdefs.h"
-/* System header to define __stub macros and hopefully few prototypes,
-    which can conflict with char crypt(); below.  */
-#include <assert.h>
-/* Override any gcc2 internal prototype to avoid an error.  */
-/* We use char because int might match the return type of a gcc2
-    builtin and then its argument prototype would still apply.  */
-char crypt();
-
-int main() {
-
-/* The GNU C library defines this for functions which it implements
-    to always fail with ENOSYS.  Some functions are actually named
-    something starting with __ and the normal name is an alias.  */
-#if defined (__stub_crypt) || defined (__stub___crypt)
-choke me
-#else
-crypt();
-#endif
-
-; return 0; }
 configure:18722: checking for flock
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for ftok
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for funopen
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
-/usr/bin/ld: /tmp/ccSJiIi3.o: in function `main':
-/mnt/shared/source/emergency/php53patch/php5-5.3.10/configure:18744:(.text.startup+0x7): undefined reference to `funopen'
-collect2: error: ld returned 1 exit status
-configure: failed program was:
-#line 18727 "configure"
-#include "confdefs.h"
-/* System header to define __stub macros and hopefully few prototypes,
-    which can conflict with char funopen(); below.  */
-#include <assert.h>
-/* Override any gcc2 internal prototype to avoid an error.  */
-/* We use char because int might match the return type of a gcc2
-    builtin and then its argument prototype would still apply.  */
-char funopen();
-
-int main() {
-
-/* The GNU C library defines this for functions which it implements
-    to always fail with ENOSYS.  Some functions are actually named
-    something starting with __ and the normal name is an alias.  */
-#if defined (__stub_funopen) || defined (__stub___funopen)
-choke me
-#else
-funopen();
-#endif
-
-; return 0; }
 configure:18722: checking for gai_strerror
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for gcvt
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for getloadavg
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for getlogin
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for getprotobyname
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for getprotobynumber
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for getservbyname
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for getservbyport
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for gethostname
 configure:18722: checking for getrusage
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for gettimeofday
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for gmtime_r
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for getpwnam_r
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for getgrnam_r
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for getpwuid_r
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for grantpt
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for inet_ntoa
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for inet_ntop
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for inet_pton
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for isascii
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
-configure:18734:6: warning: conflicting types for built-in function 'isascii'; expected 'int(int)' [-Wbuiltin-declaration-mismatch]
-18734 | char $ac_func();
-      |      ^~~~~~~
 configure:18722: checking for link
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for localtime_r
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for lockf
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for lchown
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for lrand48
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for memcpy
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
-configure:18734:6: warning: conflicting types for built-in function 'memcpy'; expected 'void *(void *, const void *, long unsigned int)' [-Wbuiltin-declaration-mismatch]
-18734 | char $ac_func();
-      |      ^~~~~~
-configure:18731:1: note: 'memcpy' is declared in header '<string.h>'
-18730 | #include <assert.h>
-  +++ |+#include <string.h>
-18731 | /* Override any gcc2 internal prototype to avoid an error.  */
 configure:18722: checking for memmove
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
-configure:18734:6: warning: conflicting types for built-in function 'memmove'; expected 'void *(void *, const void *, long unsigned int)' [-Wbuiltin-declaration-mismatch]
-18734 | char $ac_func();
-      |      ^~~~~~~
-configure:18731:1: note: 'memmove' is declared in header '<string.h>'
-18730 | #include <assert.h>
-  +++ |+#include <string.h>
-18731 | /* Override any gcc2 internal prototype to avoid an error.  */
 configure:18722: checking for mkstemp
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for mmap
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for nl_langinfo
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for perror
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for poll
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for ptsname
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for putenv
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for realpath
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for random
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for rand_r
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for scandir
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for setitimer
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for setlocale
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for localeconv
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for setenv
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for setpgid
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for setsockopt
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for setvbuf
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for shutdown
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for sin
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
-configure:18734:6: warning: conflicting types for built-in function 'sin'; expected 'double(double)' [-Wbuiltin-declaration-mismatch]
-18734 | char $ac_func();
-      |      ^~~
-configure:18731:1: note: 'sin' is declared in header '<math.h>'
-18730 | #include <assert.h>
-  +++ |+#include <math.h>
-18731 | /* Override any gcc2 internal prototype to avoid an error.  */
 configure:18722: checking for snprintf
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
-configure:18734:6: warning: conflicting types for built-in function 'snprintf'; expected 'int(char *, long unsigned int,  const char *, ...)' [-Wbuiltin-declaration-mismatch]
-18734 | char $ac_func();
-      |      ^~~~~~~~
-configure:18731:1: note: 'snprintf' is declared in header '<stdio.h>'
-18730 | #include <assert.h>
-  +++ |+#include <stdio.h>
-18731 | /* Override any gcc2 internal prototype to avoid an error.  */
 configure:18722: checking for srand48
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for srandom
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for statfs
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for statvfs
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for std_syslog
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
-/usr/bin/ld: /tmp/cc3Dq2v0.o: in function `main':
-/mnt/shared/source/emergency/php53patch/php5-5.3.10/configure:18744:(.text.startup+0x7): undefined reference to `std_syslog'
-collect2: error: ld returned 1 exit status
-configure: failed program was:
-#line 18727 "configure"
-#include "confdefs.h"
-/* System header to define __stub macros and hopefully few prototypes,
-    which can conflict with char std_syslog(); below.  */
-#include <assert.h>
-/* Override any gcc2 internal prototype to avoid an error.  */
-/* We use char because int might match the return type of a gcc2
-    builtin and then its argument prototype would still apply.  */
-char std_syslog();
-
-int main() {
-
-/* The GNU C library defines this for functions which it implements
-    to always fail with ENOSYS.  Some functions are actually named
-    something starting with __ and the normal name is an alias.  */
-#if defined (__stub_std_syslog) || defined (__stub___std_syslog)
-choke me
-#else
-std_syslog();
-#endif
-
-; return 0; }
 configure:18722: checking for strcasecmp
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
-configure:18734:6: warning: conflicting types for built-in function 'strcasecmp'; expected 'int(const char *, const char *)' [-Wbuiltin-declaration-mismatch]
-18734 | char $ac_func();
-      |      ^~~~~~~~~~
 configure:18722: checking for strcoll
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for strdup
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
-configure:18734:6: warning: conflicting types for built-in function 'strdup'; expected 'char *(const char *)' [-Wbuiltin-declaration-mismatch]
-18734 | char $ac_func();
-      |      ^~~~~~
 configure:18722: checking for strerror
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for strftime
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
-configure:18734:6: warning: conflicting types for built-in function 'strftime'; expected 'long unsigned int(char *, long unsigned int,  const char *, const void *)' [-Wbuiltin-declaration-mismatch]
-18734 | char $ac_func();
-      |      ^~~~~~~~
-configure:18731:1: note: 'strftime' is declared in header '<time.h>'
-18730 | #include <assert.h>
-  +++ |+#include <time.h>
-18731 | /* Override any gcc2 internal prototype to avoid an error.  */
 configure:18722: checking for strnlen
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
-configure:18734:6: warning: conflicting types for built-in function 'strnlen'; expected 'long unsigned int(const char *, long unsigned int)' [-Wbuiltin-declaration-mismatch]
-18734 | char $ac_func();
-      |      ^~~~~~~
 configure:18722: checking for strptime
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for strstr
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
-configure:18734:6: warning: conflicting types for built-in function 'strstr'; expected 'char *(const char *, const char *)' [-Wbuiltin-declaration-mismatch]
-18734 | char $ac_func();
-      |      ^~~~~~
-configure:18731:1: note: 'strstr' is declared in header '<string.h>'
-18730 | #include <assert.h>
-  +++ |+#include <string.h>
-18731 | /* Override any gcc2 internal prototype to avoid an error.  */
 configure:18722: checking for strtok_r
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for symlink
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for tempnam
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
-/usr/bin/ld: /tmp/ccsCBwrl.o: in function `main':
-/mnt/shared/source/emergency/php53patch/php5-5.3.10/configure:18744:(.text.startup+0x7): warning: the use of `tempnam' is dangerous, better use `mkstemp'
 configure:18722: checking for tzset
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for unlockpt
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for unsetenv
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for usleep
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for utime
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for vsnprintf
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
-configure:18734:6: warning: conflicting types for built-in function 'vsnprintf'; expected 'int(char *, long unsigned int,  const char *, __va_list_tag *)' [-Wbuiltin-declaration-mismatch]
-18734 | char $ac_func();
-      |      ^~~~~~~~~
-configure:18731:1: note: 'vsnprintf' is declared in header '<stdio.h>'
-18730 | #include <assert.h>
-  +++ |+#include <stdio.h>
-18731 | /* Override any gcc2 internal prototype to avoid an error.  */
 configure:18722: checking for vasprintf
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for asprintf
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18722: checking for nanosleep
-configure:18750: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  1>&5
 configure:18781: checking for nanosleep in -lrt
 configure:18800: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lrt  -lm -lnsl  1>&5
 configure:18875: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lm -lnsl  -lrt 1>&5
 configure:18919: checking for getaddrinfo
-configure:18931: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lrt -lm -lnsl  1>&5
-configure:18977: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lrt -lm -lnsl  1>&5
-configure: In function 'main':
-configure:18947:3: warning: incompatible implicit declaration of built-in function 'memset' [-Wbuiltin-declaration-mismatch]
-18947 |   memset(&hints, 0, sizeof(hints));
-      |   ^~~~~~
-configure:18940:1: note: include '<string.h>' or provide a declaration of 'memset'
-18939 | #include <netdb.h>
-  +++ |+#include <string.h>
-18940 | #include <sys/types.h>
-configure:18951:5: warning: incompatible implicit declaration of built-in function 'exit' [-Wbuiltin-declaration-mismatch]
-18951 |     exit(1);
-      |     ^~~~
-configure:18940:1: note: include '<stdlib.h>' or provide a declaration of 'exit'
-18939 | #include <netdb.h>
-  +++ |+#include <stdlib.h>
-18940 | #include <sys/types.h>
-configure:18955:5: warning: incompatible implicit declaration of built-in function 'exit' [-Wbuiltin-declaration-mismatch]
-18955 |     exit(1);
-      |     ^~~~
-configure:18955:5: note: include '<stdlib.h>' or provide a declaration of 'exit'
-configure:18963:7: warning: incompatible implicit declaration of built-in function 'exit' [-Wbuiltin-declaration-mismatch]
-18963 |       exit(1);
-      |       ^~~~
-configure:18963:7: note: include '<stdlib.h>' or provide a declaration of 'exit'
-configure:18967:7: warning: incompatible implicit declaration of built-in function 'exit' [-Wbuiltin-declaration-mismatch]
-18967 |       exit(1);
-      |       ^~~~
-configure:18967:7: note: include '<stdlib.h>' or provide a declaration of 'exit'
-configure:18972:3: warning: incompatible implicit declaration of built-in function 'exit' [-Wbuiltin-declaration-mismatch]
-18972 |   exit(0);
-      |   ^~~~
-configure:18972:3: note: include '<stdlib.h>' or provide a declaration of 'exit'
 configure:19007: checking for __sync_fetch_and_add
-configure:19019: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lrt -lm -lnsl  1>&5
 configure:19042: checking for strlcat
-configure:19070: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lrt -lm -lnsl  1>&5
 configure:19042: checking for strlcpy
-configure:19070: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lrt -lm -lnsl  1>&5
 configure:19042: checking for getopt
-configure:19070: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lrt -lm -lnsl  1>&5
 configure:19097: checking whether utime accepts a null argument
-configure:19118: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lrt -lm -lnsl  1>&5
-configure: In function 'main':
-configure:19112:1: warning: incompatible implicit declaration of built-in function 'exit' [-Wbuiltin-declaration-mismatch]
-19112 | exit(!(stat ("conftestdata", &s) == 0 && utime("conftestdata", (long *)0) == 0
-      | ^~~~
-configure:19110:1: note: include '<stdlib.h>' or provide a declaration of 'exit'
-19109 | #include <sys/stat.h>
-  +++ |+#include <stdlib.h>
-19110 | main() {
 configure:19144: checking for working alloca.h
 configure:19177: checking for alloca
-configure:19210: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lrt -lm -lnsl  1>&5
 configure:19377: checking for declared timezone
-configure:19398: gcc -std=gnu89 -c -g -O2 -fvisibility=hidden  conftest.c 1>&5
 configure:19424: checking for type of reentrant time-related functions
-configure:19453: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lrt -lm -lnsl  1>&5
-configure: In function 'main':
-configure:19445:3: warning: assignment to 'int' from 'struct tm *' makes integer from pointer without a cast [-Wint-conversion]
-19445 | s = gmtime_r(&old, &t);
-      |   ^
-configure:19446:11: error: too many arguments to function 'asctime_r'; expected 2, have 3
-19446 | r = (int) asctime_r(&t, buf, 26);
-      |           ^~~~~~~~~          ~~
-In file included from configure:19437:
-/usr/include/time.h:206:14: note: declared here
-  206 | extern char *asctime_r (const struct tm *__restrict __tp,
-      |              ^~~~~~~~~
-configure:19446:5: warning: cast from pointer to integer of different size [-Wpointer-to-int-cast]
-19446 | r = (int) asctime_r(&t, buf, 26);
-      |     ^
-configure: failed program was:
-#line 19435 "configure"
-#include "confdefs.h"
-
-#include <time.h>
-
-main() {
-char buf[27];
-struct tm t;
-time_t old = 0;
-int r, s;
-
-s = gmtime_r(&old, &t);
-r = (int) asctime_r(&t, buf, 26);
-if (r == s && s == 0) return (0);
-return (1);
-}
-
-configure:19485: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lrt -lm -lnsl  1>&5
-configure: In function 'main':
-configure:19478:7: error: too many arguments to function 'asctime_r'; expected 2, have 3
-19478 |   p = asctime_r(&t, buf, 26);
-      |       ^~~~~~~~~          ~~
-In file included from configure:19471:
-/usr/include/time.h:206:14: note: declared here
-  206 | extern char *asctime_r (const struct tm *__restrict __tp,
-      |              ^~~~~~~~~
-configure: failed program was:
-#line 19469 "configure"
-#include "confdefs.h"
-
-#include <time.h>
-main() {
-  struct tm t, *s;
-  time_t old = 0;
-  char buf[27], *p;
-  
-  s = gmtime_r(&old, &t);
-  p = asctime_r(&t, buf, 26);
-  if (p == buf && s == &t) return (0);
-  return (1);
-}
-  
 configure:19523: checking for readdir_r
-configure:19551: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lrt -lm -lnsl  1>&5
 configure:19573: checking for type of readdir_r
-configure:19609: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lrt -lm -lnsl  1>&5
-configure: In function 'main':
-configure:19601:5: warning: incompatible implicit declaration of built-in function 'exit' [-Wbuiltin-declaration-mismatch]
-19601 |     exit(1);
-      |     ^~~~
-configure:19589:1: note: include '<stdlib.h>' or provide a declaration of 'exit'
-19588 | #include <dirent.h>
-  +++ |+#include <stdlib.h>
-19589 | 
-configure:19602:3: warning: 'readdir_r' is deprecated [-Wdeprecated-declarations]
-19602 |   if (readdir_r(dir, (struct dirent *) entry, &pentry) == 0)
-      |   ^~
-In file included from configure:19588:
-/usr/include/dirent.h:185:12: note: declared here
-  185 | extern int readdir_r (DIR *__restrict __dirp,
-      |            ^~~~~~~~~
 configure:19672: checking for in_addr_t
 configure:19711: checking for crypt_r
-configure:19739: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lrt -lm -lnsl  1>&5
-/usr/bin/ld: /tmp/ccn4rp5e.o: in function `main':
-/mnt/shared/source/emergency/php53patch/php5-5.3.10/configure:19733:(.text.startup+0x7): undefined reference to `crypt_r'
-collect2: error: ld returned 1 exit status
-configure: failed program was:
-#line 19716 "configure"
-#include "confdefs.h"
-/* System header to define __stub macros and hopefully few prototypes,
-    which can conflict with char crypt_r(); below.  */
-#include <assert.h>
-/* Override any gcc2 internal prototype to avoid an error.  */
-/* We use char because int might match the return type of a gcc2
-    builtin and then its argument prototype would still apply.  */
-char crypt_r();
-
-int main() {
-
-/* The GNU C library defines this for functions which it implements
-    to always fail with ENOSYS.  Some functions are actually named
-    something starting with __ and the normal name is an alias.  */
-#if defined (__stub_crypt_r) || defined (__stub___crypt_r)
-choke me
-#else
-crypt_r();
-#endif
-
-; return 0; }
 configure:19896: checking whether to include gcov symbols
 configure:20056: checking whether to include debugging symbols
 configure:20104: checking layout of installed files
@@ -1070,18 +358,14 @@ configure:20567: checking how big to make fd sets
 configure:20635: checking size of long
 configure:20674: checking size of int
 configure:20714: checking for int32_t
-configure:20739: gcc -std=gnu89 -c -g -O2 -fvisibility=hidden  conftest.c 1>&5
 configure:20762: checking for uint32_t
-configure:20787: gcc -std=gnu89 -c -g -O2 -fvisibility=hidden  conftest.c 1>&5
 configure:20819: checking for sys/types.h
 configure:20819: checking for inttypes.h
 configure:20819: checking for stdint.h
 configure:20819: checking for string.h
 configure:20819: checking for stdlib.h
 configure:20859: checking for strtoll
-configure:20887: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lrt -lm -lnsl  1>&5
 configure:20859: checking for atoll
-configure:20887: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lrt -lm -lnsl  1>&5
 configure:20859: checking for strftime
 configure:21349: checking which regex library to use
 configure:21766: checking whether to enable LIBXML support
@@ -1190,348 +474,38 @@ int main(int argc, char **argv) {
 configure:87214: checking for sqlite support
 configure:87258: checking whether to enable UTF-8 support in sqlite (default: ISO-8859-1)
 configure:88249: checking whether flush should be called explicitly after a buffered io
-configure:88298: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lrt -lm -lnsl  1>&5
-/usr/bin/ld: /tmp/cc8k5mQR.o: in function `main':
-/mnt/shared/source/emergency/php53patch/php5-5.3.10/configure:88267:(.text.startup+0x1a): warning: the use of `tmpnam' is dangerous, better use `mkstemp'
 configure:88326: checking for crypt in -lcrypt
-configure:88345: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lcrypt  -lrt -lm -lnsl  1>&5
 configure:88374: checking for standard DES crypt
-configure:88404: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lcrypt -lrt -lm -lnsl  -lcrypt 1>&5
-configure: In function 'main':
-configure:88397:5: warning: incompatible implicit declaration of built-in function 'exit' [-Wbuiltin-declaration-mismatch]
-88397 |     exit (strcmp((char *)crypt("rasmuslerdorf","rl"),"rl.3StKT.4T8M"));
-      |     ^~~~
-configure:88393:1: note: include '<stdlib.h>' or provide a declaration of 'exit'
-88392 | #include <crypt.h>
-  +++ |+#include <stdlib.h>
-88393 | #endif
 configure:88425: checking for extended DES crypt
-configure:88455: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lcrypt -lrt -lm -lnsl  -lcrypt 1>&5
-configure: In function 'main':
-configure:88448:3: warning: incompatible implicit declaration of built-in function 'exit' [-Wbuiltin-declaration-mismatch]
-88448 |   exit (strcmp((char *)crypt("rasmuslerdorf","_J9..rasm"),"_J9..rasmBYk8r9AiWNc"));
-      |   ^~~~
-configure:88444:1: note: include '<stdlib.h>' or provide a declaration of 'exit'
-88443 | #include <crypt.h>
-  +++ |+#include <stdlib.h>
-88444 | #endif
-configure: failed program was:
-#line 88436 "configure"
-#include "confdefs.h"
-
-#if HAVE_UNISTD_H
-#include <unistd.h>
-#endif
-
-#if HAVE_CRYPT_H
-#include <crypt.h>
-#endif
-
-main() {
-#if HAVE_CRYPT
-  exit (strcmp((char *)crypt("rasmuslerdorf","_J9..rasm"),"_J9..rasmBYk8r9AiWNc"));
-#else
-  exit(0);
-#endif
-}
 configure:88476: checking for MD5 crypt
-configure:88515: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lcrypt -lrt -lm -lnsl  -lcrypt 1>&5
-configure: In function 'main':
-configure:88506:5: warning: incompatible implicit declaration of built-in function 'strcpy' [-Wbuiltin-declaration-mismatch]
-88506 |     strcpy(answer,salt);
-      |     ^~~~~~
-configure:88495:1: note: include '<string.h>' or provide a declaration of 'strcpy'
-88494 | #include <crypt.h>
-  +++ |+#include <string.h>
-88495 | #endif
-configure:88507:5: warning: incompatible implicit declaration of built-in function 'strcat' [-Wbuiltin-declaration-mismatch]
-88507 |     strcat(answer,"rISCgZzpwk3UhDidwXvin0");
-      |     ^~~~~~
-configure:88507:5: note: include '<string.h>' or provide a declaration of 'strcat'
-configure:88508:5: warning: incompatible implicit declaration of built-in function 'exit' [-Wbuiltin-declaration-mismatch]
-88508 |     exit (strcmp((char *)crypt("rasmuslerdorf",salt),answer));
-      |     ^~~~
-configure:88495:1: note: include '<stdlib.h>' or provide a declaration of 'exit'
-88494 | #include <crypt.h>
-  +++ |+#include <stdlib.h>
-88495 | #endif
 configure:88536: checking for Blowfish crypt
-configure:88572: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lcrypt -lrt -lm -lnsl  -lcrypt 1>&5
-configure: In function 'main':
-configure:88562:5: warning: incompatible implicit declaration of built-in function 'strcat' [-Wbuiltin-declaration-mismatch]
-88562 |     strcat(salt,"rasmuslerd............");
-      |     ^~~~~~
-configure:88555:1: note: include '<string.h>' or provide a declaration of 'strcat'
-88554 | #include <crypt.h>
-  +++ |+#include <string.h>
-88555 | #endif
-configure:88563:5: warning: incompatible implicit declaration of built-in function 'strcpy' [-Wbuiltin-declaration-mismatch]
-88563 |     strcpy(answer,salt);
-      |     ^~~~~~
-configure:88563:5: note: include '<string.h>' or provide a declaration of 'strcpy'
-configure:88565:5: warning: incompatible implicit declaration of built-in function 'exit' [-Wbuiltin-declaration-mismatch]
-88565 |     exit (strcmp((char *)crypt("rasmuslerdorf",salt),answer));
-      |     ^~~~
-configure:88555:1: note: include '<stdlib.h>' or provide a declaration of 'exit'
-88554 | #include <crypt.h>
-  +++ |+#include <stdlib.h>
-88555 | #endif
 configure:88593: checking for SHA512 crypt
-configure:88628: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lcrypt -lrt -lm -lnsl  -lcrypt 1>&5
-configure: In function 'main':
-configure:88619:5: warning: incompatible implicit declaration of built-in function 'strcpy' [-Wbuiltin-declaration-mismatch]
-88619 |     strcpy(answer, salt);
-      |     ^~~~~~
-configure:88612:1: note: include '<string.h>' or provide a declaration of 'strcpy'
-88611 | #include <crypt.h>
-  +++ |+#include <string.h>
-88612 | #endif
-configure:88621:5: warning: incompatible implicit declaration of built-in function 'exit' [-Wbuiltin-declaration-mismatch]
-88621 |     exit (strcmp((char *)crypt("foo",salt),answer));
-      |     ^~~~
-configure:88612:1: note: include '<stdlib.h>' or provide a declaration of 'exit'
-88611 | #include <crypt.h>
-  +++ |+#include <stdlib.h>
-88612 | #endif
-configure:88620:5: warning: '__builtin_memcpy' writing 93 bytes into a region of size 51 overflows the destination [-Wstringop-overflow=]
-88620 |     strcpy(&answer[29],"$6$$QMXjqd7rHQZPQ1yHsXkQqC1FBzDiVfTHXL.LaeDAeVV.IzMaV9VU4MQ8kPuZa2SOP1A0RPm772EaFYjpEJtdu.");
-      |     ^~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~~ 
-configure:88616:20: note: at offset 29 into destination object 'answer' of size 80
-88616 |     char salt[30], answer[80];
-      |                    ^~~~~~
-configure: failed program was:
-#line 88604 "configure"
-#include "confdefs.h"
-
-#if HAVE_UNISTD_H
-#include <unistd.h>
-#endif
-
-#if HAVE_CRYPT_H
-#include <crypt.h>
-#endif
-
-main() {
-#if HAVE_CRYPT
-    char salt[30], answer[80];
-    
-    salt[0]='$'; salt[1]='6'; salt[2]='$'; salt[3]='$'; salt[4]='b'; salt[5]='a'; salt[6]='r'; salt[7]='\0';
-    strcpy(answer, salt);
-    strcpy(&answer[29],"288752QMXjqd7rHQZPQ1yHsXkQqC1FBzDiVfTHXL.LaeDAeVV.IzMaV9VU4MQ8kPuZa2SOP1A0RPm772EaFYjpEJtdu.");
-    exit (strcmp((char *)crypt("foo",salt),answer));
-#else
-	exit(0);
-#endif
-}
 configure:88649: checking for SHA256 crypt
-configure:88684: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lcrypt -lrt -lm -lnsl  -lcrypt 1>&5
-configure: In function 'main':
-configure:88674:5: warning: incompatible implicit declaration of built-in function 'strcat' [-Wbuiltin-declaration-mismatch]
-88674 |     strcat(salt,"");
-      |     ^~~~~~
-configure:88668:1: note: include '<string.h>' or provide a declaration of 'strcat'
-88667 | #include <crypt.h>
-  +++ |+#include <string.h>
-88668 | #endif
-configure:88675:5: warning: incompatible implicit declaration of built-in function 'strcpy' [-Wbuiltin-declaration-mismatch]
-88675 |     strcpy(answer, salt);
-      |     ^~~~~~
-configure:88675:5: note: include '<string.h>' or provide a declaration of 'strcpy'
-configure:88677:5: warning: incompatible implicit declaration of built-in function 'exit' [-Wbuiltin-declaration-mismatch]
-88677 |     exit (strcmp((char *)crypt("foo",salt),answer));
-      |     ^~~~
-configure:88668:1: note: include '<stdlib.h>' or provide a declaration of 'exit'
-88667 | #include <crypt.h>
-  +++ |+#include <stdlib.h>
-88668 | #endif
-configure: failed program was:
-#line 88660 "configure"
-#include "confdefs.h"
-
-#if HAVE_UNISTD_H
-#include <unistd.h>
-#endif
-
-#if HAVE_CRYPT_H
-#include <crypt.h>
-#endif
-
-main() {
-#if HAVE_CRYPT
-    char salt[30], answer[80];
-    salt[0]='$'; salt[1]='5'; salt[2]='$'; salt[3]='$'; salt[4]='s'; salt[5]='a'; salt[6]='l'; salt[7]='t';  salt[8]='s'; salt[9]='t'; salt[10]='r'; salt[11]='i'; salt[12]='n'; salt[13]='g'; salt[14]='\0';    
-    strcat(salt,"");
-    strcpy(answer, salt);
-    strcpy(&answer[29], "B8vYYiY.CVt1RlTTf8KbXBH3hsxY/GNooZaBBGWEc5");
-    exit (strcmp((char *)crypt("foo",salt),answer));
-#else
-	exit(0);
-#endif
-}
 configure:88708: checking whether the compiler supports __alignof__
-configure:88724: gcc -std=gnu89 -c -g -O2 -fvisibility=hidden  conftest.c 1>&5
 configure:88749: checking whether the compiler supports aligned attribute
-configure:88765: gcc -std=gnu89 -c -g -O2 -fvisibility=hidden  conftest.c 1>&5
 configure:88944: checking for getcwd
-configure:88972: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lcrypt -lrt -lm -lnsl  -lcrypt 1>&5
 configure:88944: checking for getwd
-configure:88972: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lcrypt -lrt -lm -lnsl  -lcrypt 1>&5
-/usr/bin/ld: /tmp/ccAtge1F.o: in function `main':
-/mnt/shared/source/emergency/php53patch/php5-5.3.10/configure:88966:(.text.startup+0x7): warning: the `getwd' function is dangerous and should not be used.
 configure:88944: checking for asinh
-configure:88972: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lcrypt -lrt -lm -lnsl  -lcrypt 1>&5
-configure:88956:6: warning: conflicting types for built-in function 'asinh'; expected 'double(double)' [-Wbuiltin-declaration-mismatch]
-88956 | char $ac_func();
-      |      ^~~~~
-configure:88953:1: note: 'asinh' is declared in header '<math.h>'
-88952 | #include <assert.h>
-  +++ |+#include <math.h>
-88953 | /* Override any gcc2 internal prototype to avoid an error.  */
 configure:88944: checking for acosh
-configure:88972: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lcrypt -lrt -lm -lnsl  -lcrypt 1>&5
-configure:88956:6: warning: conflicting types for built-in function 'acosh'; expected 'double(double)' [-Wbuiltin-declaration-mismatch]
-88956 | char $ac_func();
-      |      ^~~~~
-configure:88953:1: note: 'acosh' is declared in header '<math.h>'
-88952 | #include <assert.h>
-  +++ |+#include <math.h>
-88953 | /* Override any gcc2 internal prototype to avoid an error.  */
 configure:88944: checking for atanh
-configure:88972: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lcrypt -lrt -lm -lnsl  -lcrypt 1>&5
-configure:88956:6: warning: conflicting types for built-in function 'atanh'; expected 'double(double)' [-Wbuiltin-declaration-mismatch]
-88956 | char $ac_func();
-      |      ^~~~~
-configure:88953:1: note: 'atanh' is declared in header '<math.h>'
-88952 | #include <assert.h>
-  +++ |+#include <math.h>
-88953 | /* Override any gcc2 internal prototype to avoid an error.  */
 configure:88944: checking for log1p
-configure:88972: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lcrypt -lrt -lm -lnsl  -lcrypt 1>&5
-configure:88956:6: warning: conflicting types for built-in function 'log1p'; expected 'double(double)' [-Wbuiltin-declaration-mismatch]
-88956 | char $ac_func();
-      |      ^~~~~
-configure:88953:1: note: 'log1p' is declared in header '<math.h>'
-88952 | #include <assert.h>
-  +++ |+#include <math.h>
-88953 | /* Override any gcc2 internal prototype to avoid an error.  */
 configure:88944: checking for hypot
-configure:88972: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lcrypt -lrt -lm -lnsl  -lcrypt 1>&5
-configure:88956:6: warning: conflicting types for built-in function 'hypot'; expected 'double(double,  double)' [-Wbuiltin-declaration-mismatch]
-88956 | char $ac_func();
-      |      ^~~~~
-configure:88953:1: note: 'hypot' is declared in header '<math.h>'
-88952 | #include <assert.h>
-  +++ |+#include <math.h>
-88953 | /* Override any gcc2 internal prototype to avoid an error.  */
 configure:88944: checking for glob
-configure:88972: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lcrypt -lrt -lm -lnsl  -lcrypt 1>&5
 configure:88944: checking for strfmon
-configure:88972: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lcrypt -lrt -lm -lnsl  -lcrypt 1>&5
-configure:88956:6: warning: conflicting types for built-in function 'strfmon'; expected 'long int(char *, long unsigned int,  const char *, ...)' [-Wbuiltin-declaration-mismatch]
-88956 | char $ac_func();
-      |      ^~~~~~~
 configure:88944: checking for nice
-configure:88972: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lcrypt -lrt -lm -lnsl  -lcrypt 1>&5
 configure:88944: checking for fpclass
-configure:88972: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lcrypt -lrt -lm -lnsl  -lcrypt 1>&5
-/usr/bin/ld: /tmp/cct0i06i.o: in function `main':
-/mnt/shared/source/emergency/php53patch/php5-5.3.10/configure:88966:(.text.startup+0x7): undefined reference to `fpclass'
-collect2: error: ld returned 1 exit status
-configure: failed program was:
-#line 88949 "configure"
-#include "confdefs.h"
-/* System header to define __stub macros and hopefully few prototypes,
-    which can conflict with char fpclass(); below.  */
-#include <assert.h>
-/* Override any gcc2 internal prototype to avoid an error.  */
-/* We use char because int might match the return type of a gcc2
-    builtin and then its argument prototype would still apply.  */
-char fpclass();
-
-int main() {
-
-/* The GNU C library defines this for functions which it implements
-    to always fail with ENOSYS.  Some functions are actually named
-    something starting with __ and the normal name is an alias.  */
-#if defined (__stub_fpclass) || defined (__stub___fpclass)
-choke me
-#else
-fpclass();
-#endif
-
-; return 0; }
 configure:88944: checking for isinf
-configure:88972: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lcrypt -lrt -lm -lnsl  -lcrypt 1>&5
-configure:88956:6: warning: conflicting types for built-in function 'isinf'; expected 'int()' [-Wbuiltin-declaration-mismatch]
-88956 | char $ac_func();
-      |      ^~~~~
-configure:88953:1: note: 'isinf' is declared in header '<math.h>'
-88952 | #include <assert.h>
-  +++ |+#include <math.h>
-88953 | /* Override any gcc2 internal prototype to avoid an error.  */
 configure:88944: checking for isnan
-configure:88972: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lcrypt -lrt -lm -lnsl  -lcrypt 1>&5
-configure:88956:6: warning: conflicting types for built-in function 'isnan'; expected 'int()' [-Wbuiltin-declaration-mismatch]
-88956 | char $ac_func();
-      |      ^~~~~
-configure:88953:1: note: 'isnan' is declared in header '<math.h>'
-88952 | #include <assert.h>
-  +++ |+#include <math.h>
-88953 | /* Override any gcc2 internal prototype to avoid an error.  */
 configure:88944: checking for mempcpy
-configure:88972: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lcrypt -lrt -lm -lnsl  -lcrypt 1>&5
-configure:88956:6: warning: conflicting types for built-in function 'mempcpy'; expected 'void *(void *, const void *, long unsigned int)' [-Wbuiltin-declaration-mismatch]
-88956 | char $ac_func();
-      |      ^~~~~~~
 configure:88944: checking for strpncpy
-configure:88972: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lcrypt -lrt -lm -lnsl  -lcrypt 1>&5
-/usr/bin/ld: /tmp/ccJS8VwM.o: in function `main':
-/mnt/shared/source/emergency/php53patch/php5-5.3.10/configure:88966:(.text.startup+0x7): undefined reference to `strpncpy'
-collect2: error: ld returned 1 exit status
-configure: failed program was:
-#line 88949 "configure"
-#include "confdefs.h"
-/* System header to define __stub macros and hopefully few prototypes,
-    which can conflict with char strpncpy(); below.  */
-#include <assert.h>
-/* Override any gcc2 internal prototype to avoid an error.  */
-/* We use char because int might match the return type of a gcc2
-    builtin and then its argument prototype would still apply.  */
-char strpncpy();
-
-int main() {
-
-/* The GNU C library defines this for functions which it implements
-    to always fail with ENOSYS.  Some functions are actually named
-    something starting with __ and the normal name is an alias.  */
-#if defined (__stub_strpncpy) || defined (__stub___strpncpy)
-choke me
-#else
-strpncpy();
-#endif
-
-; return 0; }
 configure:88997: checking for working fnmatch
-configure:89012: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lcrypt -lrt -lm -lnsl  -lcrypt 1>&5
-configure: In function 'main':
-configure:89009:10: warning: incompatible implicit declaration of built-in function 'exit' [-Wbuiltin-declaration-mismatch]
-89009 | main() { exit (fnmatch ("a*", "abc", 0) != 0); }
-      |          ^~~~
-configure:89009:1: note: include '<stdlib.h>' or provide a declaration of 'exit'
-89008 | #include "confdefs.h"
-  +++ |+#include <stdlib.h>
-89009 | main() { exit (fnmatch ("a*", "abc", 0) != 0); }
 configure:89039: checking for fork
-configure:89067: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lcrypt -lrt -lm -lnsl  -lcrypt 1>&5
-configure:89051:6: warning: conflicting types for built-in function 'fork'; expected 'int(void)' [-Wbuiltin-declaration-mismatch]
-89051 | char $ac_func();
-      |      ^~~~
 configure:89097: checking if your OS can spawn processes with inherited handles
 configure:89121: checking for res_nsearch
 configure:89149: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lcrypt -lrt -lm -lnsl  -lcrypt 1>&5
 configure:89656: checking for dns_search
 configure:89684: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lcrypt -lrt -lm -lnsl  -lcrypt 1>&5
-/usr/bin/ld: /tmp/cc3hT4ye.o: in function `main':
+/usr/bin/ld: /tmp/ccoRZf9u.o: in function `main':
 /mnt/shared/source/emergency/php53patch/php5-5.3.10/configure:89678:(.text.startup+0x7): undefined reference to `dns_search'
 collect2: error: ld returned 1 exit status
 configure: failed program was:
@@ -1559,7 +533,7 @@ dns_search();
 ; return 0; }
 configure:89702: checking for __dns_search
 configure:89730: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lcrypt -lrt -lm -lnsl  -lcrypt 1>&5
-/usr/bin/ld: /tmp/ccL0YxlW.o: in function `main':
+/usr/bin/ld: /tmp/cc8GmVqo.o: in function `main':
 /mnt/shared/source/emergency/php53patch/php5-5.3.10/configure:89724:(.text.startup+0x7): undefined reference to `__dns_search'
 collect2: error: ld returned 1 exit status
 configure: failed program was:
@@ -1587,7 +561,7 @@ __dns_search();
 ; return 0; }
 configure:89768: checking for dns_search in -lresolv
 configure:89787: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lresolv  -lcrypt -lrt -lm -lnsl  -lcrypt 1>&5
-/usr/bin/ld: /tmp/ccsEDFLL.o: in function `main':
+/usr/bin/ld: /tmp/ccCB7dpV.o: in function `main':
 /mnt/shared/source/emergency/php53patch/php5-5.3.10/configure:89783:(.text.startup+0x7): undefined reference to `dns_search'
 collect2: error: ld returned 1 exit status
 configure: failed program was:
@@ -1603,7 +577,7 @@ dns_search()
 ; return 0; }
 configure:89807: checking for __dns_search in -lresolv
 configure:89826: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lresolv  -lcrypt -lrt -lm -lnsl  -lcrypt 1>&5
-/usr/bin/ld: /tmp/ccR9f5Cj.o: in function `main':
+/usr/bin/ld: /tmp/ccdwbVyK.o: in function `main':
 /mnt/shared/source/emergency/php53patch/php5-5.3.10/configure:89822:(.text.startup+0x7): undefined reference to `__dns_search'
 collect2: error: ld returned 1 exit status
 configure: failed program was:
@@ -1684,35 +658,16 @@ configure:90754: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftes
 configure:91263: checking for res_search
 configure:91291: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lcrypt -lrt -lm -lnsl  -lcrypt 1>&5
 configure:91794: checking whether atof() accepts NAN
-configure:91825: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lcrypt -lrt -lm -lnsl  -lcrypt 1>&5
 configure:91852: checking whether atof() accepts INF
-configure:91886: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lcrypt -lrt -lm -lnsl  -lcrypt 1>&5
 configure:91913: checking whether HUGE_VAL == INF
-configure:91947: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lcrypt -lrt -lm -lnsl  -lcrypt 1>&5
 configure:91974: checking whether HUGE_VAL + -HUGEVAL == NAN
-configure:92010: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lcrypt -lrt -lm -lnsl  -lcrypt 1>&5
 configure:92037: checking whether strptime() declaration fails
-configure:92059: gcc -std=gnu89 -c -g -O2 -fvisibility=hidden  conftest.c 1>&5
 configure:92087: checking for wchar.h
-configure:92097: gcc -std=gnu89 -E  conftest.c >/dev/null 2>conftest.out
 configure:92126: checking for mblen
-configure:92154: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lcrypt -lrt -lm -lnsl  -lcrypt 1>&5
 configure:92181: checking for mbrlen
-configure:92209: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lcrypt -lrt -lm -lnsl  -lcrypt 1>&5
 configure:92181: checking for mbsinit
-configure:92209: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c -lcrypt -lrt -lm -lnsl  -lcrypt 1>&5
 configure:92234: checking for mbstate_t
-configure:92253: gcc -std=gnu89 -c -g -O2 -fvisibility=hidden  conftest.c 1>&5
 configure:92281: checking for atomic.h
-configure:92291: gcc -std=gnu89 -E  conftest.c >/dev/null 2>conftest.out
-configure:92287:10: fatal error: atomic.h: No such file or directory
-92287 | #include <$ac_hdr>
-      |          ^~~~~~~~~ 
-compilation terminated.
-configure: failed program was:
-#line 92286 "configure"
-#include "confdefs.h"
-#include <atomic.h>
 configure:92681: checking for Sybase-CT support
 configure:95089: checking whether to enable System V IPC support
 configure:95469: checking whether to enable System V semaphore support
@@ -1739,7 +694,6 @@ configure:104859: checking for inttypes.h
 configure:104859: checking for stdint.h
 configure:104859: checking for limits.h
 configure:104859: checking for malloc.h
-configure:104869: gcc -std=gnu89 -E  conftest.c >/dev/null 2>conftest.out
 configure:104859: checking for string.h
 configure:104859: checking for unistd.h
 configure:104859: checking for stdarg.h
@@ -1751,7 +705,6 @@ configure:104859: checking for stdlib.h
 configure:104859: checking for dlfcn.h
 configure:104897: checking for size_t
 configure:104930: checking return type of signal handlers
-configure:104952: gcc -std=gnu89 -c -g -O2 -fvisibility=hidden  conftest.c 1>&5
 configure:104976: checking for uint
 configure:105009: checking for ulong
 configure:105044: checking for int32_t
@@ -1760,134 +713,23 @@ configure:105084: checking for uint32_t
 configure:105105: gcc -std=gnu89 -c -g -O2 -fvisibility=hidden  conftest.c 1>&5
 configure:105124: checking for vprintf
 configure:105229: checking for 8-bit clean memcmp
-configure:105247: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c  1>&5
-configure: In function 'main':
-configure:105242:3: warning: incompatible implicit declaration of built-in function 'exit' [-Wbuiltin-declaration-mismatch]
-105242 |   exit(memcmp(&c0, &c2, 1) < 0 && memcmp(&c1, &c2, 1) < 0 ? 0 : 1);
-       |   ^~~~
-configure:105238:1: note: include '<stdlib.h>' or provide a declaration of 'exit'
-105237 | #include "confdefs.h"
-   +++ |+#include <stdlib.h>
-105238 | 
-configure:105242:25: warning: 'memcmp' argument 3 type is 'int' where 'long unsigned int' is expected in a call to built-in function declared without prototype [-Wbuiltin-declaration-mismatch]
-105242 |   exit(memcmp(&c0, &c2, 1) < 0 && memcmp(&c1, &c2, 1) < 0 ? 0 : 1);
-       |                         ^
-<built-in>: note: built-in 'memcmp' declared here
-configure:105242:52: warning: 'memcmp' argument 3 type is 'int' where 'long unsigned int' is expected in a call to built-in function declared without prototype [-Wbuiltin-declaration-mismatch]
-105242 |   exit(memcmp(&c0, &c2, 1) < 0 && memcmp(&c1, &c2, 1) < 0 ? 0 : 1);
-       |                                                    ^
-<built-in>: note: built-in 'memcmp' declared here
 configure:105267: checking for working alloca.h
 configure:105300: checking for alloca
 configure:105501: checking for memcpy
 configure:105501: checking for strdup
 configure:105501: checking for getpid
-configure:105529: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c  1>&5
 configure:105501: checking for kill
-configure:105529: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c  1>&5
 configure:105501: checking for strtod
-configure:105529: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c  1>&5
 configure:105501: checking for strtol
-configure:105529: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c  1>&5
 configure:105501: checking for finite
-configure:105529: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c  1>&5
-configure:105513:6: warning: conflicting types for built-in function 'finite'; expected 'int(double)' [-Wbuiltin-declaration-mismatch]
-105513 | char $ac_func();
-       |      ^~~~~~
 configure:105501: checking for fpclass
 configure:105501: checking for sigsetjmp
-configure:105529: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c  1>&5
-/usr/bin/ld: /tmp/ccZpeHKp.o: in function `main':
-/mnt/shared/source/emergency/php53patch/php5-5.3.10/configure:105523:(.text.startup+0x7): undefined reference to `sigsetjmp'
-collect2: error: ld returned 1 exit status
-configure: failed program was:
-#line 105506 "configure"
-#include "confdefs.h"
-/* System header to define __stub macros and hopefully few prototypes,
-    which can conflict with char sigsetjmp(); below.  */
-#include <assert.h>
-/* Override any gcc2 internal prototype to avoid an error.  */
-/* We use char because int might match the return type of a gcc2
-    builtin and then its argument prototype would still apply.  */
-char sigsetjmp();
-
-int main() {
-
-/* The GNU C library defines this for functions which it implements
-    to always fail with ENOSYS.  Some functions are actually named
-    something starting with __ and the normal name is an alias.  */
-#if defined (__stub_sigsetjmp) || defined (__stub___sigsetjmp)
-choke me
-#else
-sigsetjmp();
-#endif
-
-; return 0; }
 configure:105555: checking whether sprintf is broken
-configure:105570: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c  1>&5
-configure: In function 'main':
-configure:105567:22: warning: incompatible implicit declaration of built-in function 'exit' [-Wbuiltin-declaration-mismatch]
-105567 | main() {char buf[20];exit(sprintf(buf,"testing 123")!=11); }
-       |                      ^~~~
-configure:105567:1: note: include '<stdlib.h>' or provide a declaration of 'exit'
-105566 | #include "confdefs.h"
-   +++ |+#include <stdlib.h>
-105567 | main() {char buf[20];exit(sprintf(buf,"testing 123")!=11); }
-configure:105567:27: warning: incompatible implicit declaration of built-in function 'sprintf' [-Wbuiltin-declaration-mismatch]
-105567 | main() {char buf[20];exit(sprintf(buf,"testing 123")!=11); }
-       |                           ^~~~~~~
-configure:105567:1: note: include '<stdio.h>' or provide a declaration of 'sprintf'
-105566 | #include "confdefs.h"
-   +++ |+#include <stdio.h>
-105567 | main() {char buf[20];exit(sprintf(buf,"testing 123")!=11); }
 configure:105604: checking for finite
 configure:105604: checking for isfinite
-configure:105632: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c  1>&5
-/usr/bin/ld: /tmp/ccxDuGyS.o: in function `main':
-/mnt/shared/source/emergency/php53patch/php5-5.3.10/configure:105626:(.text.startup+0x7): undefined reference to `isfinite'
-collect2: error: ld returned 1 exit status
-configure: failed program was:
-#line 105609 "configure"
-#include "confdefs.h"
-/* System header to define __stub macros and hopefully few prototypes,
-    which can conflict with char isfinite(); below.  */
-#include <assert.h>
-/* Override any gcc2 internal prototype to avoid an error.  */
-/* We use char because int might match the return type of a gcc2
-    builtin and then its argument prototype would still apply.  */
-char isfinite();
-
-int main() {
-
-/* The GNU C library defines this for functions which it implements
-    to always fail with ENOSYS.  Some functions are actually named
-    something starting with __ and the normal name is an alias.  */
-#if defined (__stub_isfinite) || defined (__stub___isfinite)
-choke me
-#else
-isfinite();
-#endif
-
-; return 0; }
 configure:105604: checking for isinf
 configure:105604: checking for isnan
 configure:105659: checking whether fp_except is defined
-configure:105676: gcc -std=gnu89 -c -g -O2 -fvisibility=hidden  conftest.c 1>&5
-configure:105667:10: fatal error: floatingpoint.h: No such file or directory
-105667 | #include <floatingpoint.h>
-       |          ^~~~~~~~~~~~~~~~~
-compilation terminated.
-configure: failed program was:
-#line 105665 "configure"
-#include "confdefs.h"
-
-#include <floatingpoint.h>
-
-int main() {
-
-fp_except x = (fp_except) 0;
-
-; return 0; }
 configure:105703: checking for usable _FPU_SETCW
 configure:105725: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c  1>&5
 configure:105746: checking for usable fpsetprec
@@ -2035,7 +877,6 @@ configure:106176: checking whether to enable inline optimization for GCC
 configure:106180: checking whether to enable Zend debugging
 configure:106184: checking whether to enable Zend multibyte
 configure:106257: checking for inline
-configure:106271: gcc -std=gnu89 -c -g -O2 -fvisibility=hidden  conftest.c 1>&5
 configure:106300: checking target system is Darwin
 configure:106312: checking for MM alignment and log values
 configure:106356: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c  1>&5
@@ -2052,7 +893,6 @@ configure:106425: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   confte
 configure:106447: checking for memory allocation using mmap(/dev/zero)
 configure:106501: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c  1>&5
 configure:106525: checking for mremap
-configure:106553: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden   conftest.c  1>&5
 configure:106620: checking for stdarg.h
 configure:107651: checking build system type
 configure:107680: checking for ld used by gcc -std=gnu89
@@ -2061,31 +901,19 @@ configure:107772: checking for /usr/bin/ld option to reload object files
 configure:107797: checking for BSD-compatible nm
 configure:107850: checking how to recognize dependent libraries
 configure:108042: checking for object suffix
-configure:108048: gcc -std=gnu89 -c -g -O2 -fvisibility=hidden  conftest.c 1>&5
 configure:108068: checking for executable suffix
-configure:108078: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden    conftest.c  1>&5
 configure:108173: gcc -std=gnu89 -c -g -O2 -fvisibility=hidden  conftest.c 1>&5
 configure:108348: checking the maximum length of command line arguments
 configure:108470: checking command to parse /usr/bin/nm -B output from gcc -std=gnu89 object
-configure:108574: gcc -std=gnu89 -c -g -O2 -fvisibility=hidden  conftest.c 1>&5
-configure:108577: /usr/bin/nm -B conftest.o | sed -n -e 's/^.*[ ]\([ABCDGIRSTW][ABCDGIRSTW]*\)[ ][ ]*\([_A-Za-z][_A-Za-z0-9]*\)$/\1 \2 \2/p' > conftest.nm
-configure:108628: gcc -std=gnu89 -o conftest -g -O2 -fvisibility=hidden    conftest.c conftstm.o 1>&5
 configure:108668: checking for objdir
 configure:108734: checking for ar
 configure:108801: checking for ranlib
 configure:108868: checking for strip
 configure:109424: checking if gcc -std=gnu89 supports -fno-rtti -fno-exceptions
-configure:109441: gcc -std=gnu89 -c -g -O2 -fvisibility=hidden  -fno-rtti -fno-exceptions conftest.c 1>&5
-cc1: warning: command-line option '-fno-rtti' is valid for C++/D/ObjC++ but not for C
-configure:109445: $? = 0
 configure:109474: checking for gcc -std=gnu89 option to produce PIC
 configure:109721: checking if gcc -std=gnu89 PIC flag -fPIC works
-configure:109738: gcc -std=gnu89 -c -g -O2 -fvisibility=hidden  -fPIC -DPIC conftest.c 1>&5
-configure:109742: $? = 0
 configure:109784: checking if gcc -std=gnu89 static flag -static works
 configure:109822: checking if gcc -std=gnu89 supports -c -o file.o
-configure:109842: gcc -std=gnu89 -c -g -O2 -fvisibility=hidden  -o out/conftest2.o conftest.c 1>&5
-configure:109846: $? = 0
 configure:109893: checking whether the gcc -std=gnu89 linker (/usr/bin/ld -m elf_x86_64) supports shared libraries
 configure:110874: checking dynamic linker characteristics
 configure:111499: checking how to hardcode library paths into programs
