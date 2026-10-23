@@ -1,0 +1,223 @@
+--- a/Zend/zend_alloc.c
++++ b/Zend/zend_alloc.c
+@@ -91,7 +91,7 @@
+ #if ZEND_DEBUG && defined(HAVE_KILL) && defined(HAVE_GETPID)
+ 	kill(getpid(), SIGSEGV);
+ #endif
+-	exit(1);
++	_exit(1);
+ }
+ 
+ /*******************/
+@@ -1670,6 +1670,39 @@
+ 	}
+ }
+ 
++ZEND_API void zend_mm_safe_error_ex(const char *format, ...)
++{
++	char *error_filename;
++	uint error_lineno;
++	char buffer[1024];
++	va_list args;
++	TSRMLS_FETCH();
++
++	if (zend_is_compiling(TSRMLS_C)) {
++		error_filename = zend_get_compiled_filename(TSRMLS_C);
++		error_lineno = zend_get_compiled_lineno(TSRMLS_C);
++	} else if (EG(in_execution)) {
++		error_filename = EG(active_op_array) ? EG(active_op_array)->filename : NULL;
++		error_lineno = EG(opline_ptr) ? (*EG(opline_ptr))->lineno : 0;
++	} else {
++		error_filename = NULL;
++		error_lineno = 0;
++	}
++	if (!error_filename) {
++		error_filename = "Unknown";
++	}
++
++	va_start(args, format);
++	vsnprintf(buffer, sizeof(buffer), format, args);
++	va_end(args);
++	fprintf(stderr, "\nFatal error: %s in %s on line %d\n", buffer, error_filename, error_lineno);
++/* See http://support.microsoft.com/kb/190351 */
++#ifdef PHP_WIN32
++	fflush(stderr);
++#endif
++	_exit(1);
++}
++
+ static void zend_mm_safe_error(zend_mm_heap *heap,
+ 	const char *format,
+ 	size_t limit,
+@@ -1683,55 +1716,12 @@
+ 		_zend_mm_free_int(heap, heap->reserve ZEND_FILE_LINE_CC ZEND_FILE_LINE_EMPTY_CC);
+ 		heap->reserve = NULL;
+ 	}
+-	if (heap->overflow == 0) {
+-		char *error_filename;
+-		uint error_lineno;
+-		TSRMLS_FETCH();
+-		if (zend_is_compiling(TSRMLS_C)) {
+-			error_filename = zend_get_compiled_filename(TSRMLS_C);
+-			error_lineno = zend_get_compiled_lineno(TSRMLS_C);
+-		} else if (EG(in_execution)) {
+-			error_filename = EG(active_op_array)?EG(active_op_array)->filename:NULL;
+-			error_lineno = EG(opline_ptr)?(*EG(opline_ptr))->lineno:0;
+-		} else {
+-			error_filename = NULL;
+-			error_lineno = 0;
+-		}
+-		if (!error_filename) {
+-			error_filename = "Unknown";
+-		}
+-		heap->overflow = 1;
+-		zend_try {
+-			zend_error_noreturn(E_ERROR,
+-				format,
+-				limit,
+-#if ZEND_DEBUG
+-				filename,
+-				lineno,
+-#endif
+-				size);
+-		} zend_catch {
+-			if (heap->overflow == 2) {
+-				fprintf(stderr, "\nFatal error: ");
+-				fprintf(stderr,
+-					format,
+-					limit,
++	zend_mm_safe_error_ex(format, limit,
+ #if ZEND_DEBUG
+-					filename,
+-					lineno,
+-#endif
+-					size);
+-				fprintf(stderr, " in %s on line %d\n", error_filename, error_lineno);
+-			}
+-/* See http://support.microsoft.com/kb/190351 */
+-#ifdef PHP_WIN32
+-			fflush(stderr);
++		filename,
++		lineno,
+ #endif
+-		} zend_end_try();
+-	} else {
+-		heap->overflow = 2;
+-	}
+-	zend_bailout();
++		size);
+ }
+ 
+ static zend_mm_free_block *zend_mm_search_large_block(zend_mm_heap *heap, size_t true_size)
+@@ -2393,8 +2383,7 @@
+ 	       "rm"(offset));
+ 	
+ 	if (UNEXPECTED(overflow)) {
+-		zend_error_noreturn(E_ERROR, "Possible integer overflow in memory allocation (%zu * %zu + %zu)", nmemb, size, offset);
+-		return 0;
++		zend_mm_safe_error_ex("Possible integer overflow in memory allocation (%zu * %zu + %zu)", nmemb, size, offset);
+ 	}
+ 	return res;
+ }
+@@ -2413,8 +2402,7 @@
+                "rm"(offset));
+ 
+         if (UNEXPECTED(overflow)) {
+-                zend_error_noreturn(E_ERROR, "Possible integer overflow in memory allocation (%zu * %zu + %zu)", nmemb, size, offset);
+-                return 0;
++                zend_mm_safe_error_ex("Possible integer overflow in memory allocation (%zu * %zu + %zu)", nmemb, size, offset);
+         }
+         return res;
+ }
+@@ -2426,8 +2414,7 @@
+ 	zend_ulong64 res = (zend_ulong64)nmemb * (zend_ulong64)size + (zend_ulong64)offset;
+ 
+ 	if (UNEXPECTED(res > (zend_ulong64)0xFFFFFFFFL)) {
+-		zend_error_noreturn(E_ERROR, "Possible integer overflow in memory allocation (%zu * %zu + %zu)", nmemb, size, offset);
+-		return 0;
++		zend_mm_safe_error_ex("Possible integer overflow in memory allocation (%zu * %zu + %zu)", nmemb, size, offset);
+ 	}
+ 	return (size_t) res;
+ }
+@@ -2441,8 +2428,7 @@
+ 	double _delta = (double)res - _d;
+ 
+ 	if (UNEXPECTED((_d + _delta ) != _d)) {
+-		zend_error_noreturn(E_ERROR, "Possible integer overflow in memory allocation (%zu * %zu + %zu)", nmemb, size, offset);
+-		return 0;
++		zend_mm_safe_error_ex("Possible integer overflow in memory allocation (%zu * %zu + %zu)", nmemb, size, offset);
+ 	}
+ 	return res;
+ }
+--- a/Zend/zend_alloc.h
++++ b/Zend/zend_alloc.h
+@@ -65,6 +65,11 @@
+ ZEND_API char *_estrdup(const char *s ZEND_FILE_LINE_DC ZEND_FILE_LINE_ORIG_DC) ZEND_ATTRIBUTE_MALLOC;
+ ZEND_API char *_estrndup(const char *s, unsigned int length ZEND_FILE_LINE_DC ZEND_FILE_LINE_ORIG_DC) ZEND_ATTRIBUTE_MALLOC;
+ ZEND_API size_t _zend_mem_block_size(void *ptr TSRMLS_DC ZEND_FILE_LINE_DC ZEND_FILE_LINE_ORIG_DC);
++#if defined(__GNUC__) && __GNUC__ >= 3 && !defined(__INTEL_COMPILER) && !defined(DARWIN) && !defined(__hpux) && !defined(_AIX) && !defined(__osf__)
++ZEND_API void zend_mm_safe_error_ex(const char *format, ...) __attribute__ ((noreturn));
++#else
++ZEND_API void zend_mm_safe_error_ex(const char *format, ...);
++#endif
+ 
+ /* Standard wrapper macros */
+ #define emalloc(size)						_emalloc((size) ZEND_FILE_LINE_CC ZEND_FILE_LINE_EMPTY_CC)
+@@ -96,8 +101,7 @@
+ 	if (tmp) {
+ 		return tmp;
+ 	}
+-	fprintf(stderr, "Out of memory\n");
+-	exit(1);
++	zend_mm_safe_error_ex("Out of memory");
+ }
+ 
+ inline static void * __zend_calloc(size_t nmemb, size_t len)
+@@ -113,8 +117,7 @@
+ 	if (p) {
+ 		return p;
+ 	}
+-	fprintf(stderr, "Out of memory\n");
+-	exit(1);
++	zend_mm_safe_error_ex("Out of memory");
+ }
+ 
+ 
+--- a/configure.in
++++ b/configure.in
+@@ -42,7 +42,7 @@
+ PHP_MAJOR_VERSION=5
+ PHP_MINOR_VERSION=3
+ PHP_RELEASE_VERSION=10
+-PHP_EXTRA_VERSION=""
++PHP_EXTRA_VERSION="-security-backport"
+ PHP_VERSION="$PHP_MAJOR_VERSION.$PHP_MINOR_VERSION.$PHP_RELEASE_VERSION$PHP_EXTRA_VERSION"
+ PHP_VERSION_ID=`expr [$]PHP_MAJOR_VERSION \* 10000 + [$]PHP_MINOR_VERSION \* 100 + [$]PHP_RELEASE_VERSION`
+ 
+--- a/configure
++++ b/configure
+@@ -2174,7 +2174,7 @@
+ PHP_MAJOR_VERSION=5
+ PHP_MINOR_VERSION=3
+ PHP_RELEASE_VERSION=10
+-PHP_EXTRA_VERSION=""
++PHP_EXTRA_VERSION="-security-backport"
+ PHP_VERSION="$PHP_MAJOR_VERSION.$PHP_MINOR_VERSION.$PHP_RELEASE_VERSION$PHP_EXTRA_VERSION"
+ PHP_VERSION_ID=`expr $PHP_MAJOR_VERSION \* 10000 + $PHP_MINOR_VERSION \* 100 + $PHP_RELEASE_VERSION`
+ 
+@@ -116847,4 +116847,3 @@
+ rm -fr confdefs* $ac_clean_files
+ test "$no_create" = yes || ${CONFIG_SHELL-/bin/sh} $CONFIG_STATUS || exit 1
+ 
+-
+--- a/main/php_version.h
++++ b/main/php_version.h
+@@ -3,6 +3,6 @@
+ #define PHP_MAJOR_VERSION 5
+ #define PHP_MINOR_VERSION 3
+ #define PHP_RELEASE_VERSION 10
+-#define PHP_EXTRA_VERSION ""
+-#define PHP_VERSION "5.3.10"
++#define PHP_EXTRA_VERSION "-security-backport"
++#define PHP_VERSION "5.3.10-security-backport"
+ #define PHP_VERSION_ID 50310
